@@ -32,7 +32,7 @@ import com.lvshou.cloudreaadercopy.base.MyViewpagerAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements MainCLickListner, View.OnClickListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements MainCLickListner, ViewPager.OnPageChangeListener {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        binding.setListner(this);
         initIds();
 
         initToolbar();
@@ -81,50 +81,6 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
         navigationView = binding.navView;
         toolbar = binding.include.toolbar;
         viewPager = binding.include.includeContent;
-        binding.include.fab.setOnClickListener(this);
-        
-        binding.include.llTitleMenu.setOnClickListener(this);
-        binding.include.ivTitleGank.setOnClickListener(this);
-        binding.include.ivTitleOne.setOnClickListener(this);
-        binding.include.ivTitleDou.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.fab:
-                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                break;
-            case R.id.ll_title_menu:
-                drawer.openDrawer(GravityCompat.START);
-                break;
-            case R.id.iv_title_gank:
-                if (viewPager.getCurrentItem() != 0){
-                    binding.include.ivTitleGank.setSelected(true);
-                    binding.include.ivTitleOne.setSelected(false);
-                    binding.include.ivTitleDou.setSelected(false);
-                    viewPager.setCurrentItem(0);
-                }
-                break;
-            case R.id.iv_title_one:
-                if (viewPager.getCurrentItem() != 1){
-                    binding.include.ivTitleGank.setSelected(false);
-                    binding.include.ivTitleOne.setSelected(true);
-                    binding.include.ivTitleDou.setSelected(false);
-                    viewPager.setCurrentItem(1);
-                }
-                break;
-            case R.id.iv_title_dou:
-                if (viewPager.getCurrentItem() != 2){
-                    binding.include.ivTitleGank.setSelected(false);
-                    binding.include.ivTitleOne.setSelected(false);
-                    binding.include.ivTitleDou.setSelected(true);
-                    viewPager.setCurrentItem(2);
-                }
-                break;
-        }
-
     }
 
     private void initToolbar() {
@@ -234,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
             ToastUtil.showToast("search");
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -247,8 +202,40 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
     }
 
     @Override
-    public void onClickOk(View view) {
-        ToastUtil.showToast("xml_listner");
+    public void onClickMain(View view) {
+        switch (view.getId()) {
+            case R.id.fab:
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                break;
+            case R.id.ll_title_menu:
+                drawer.openDrawer(GravityCompat.START);
+                break;
+            case R.id.iv_title_gank:
+                if (viewPager.getCurrentItem() != 0){
+                    binding.include.ivTitleGank.setSelected(true);
+                    binding.include.ivTitleOne.setSelected(false);
+                    binding.include.ivTitleDou.setSelected(false);
+                    viewPager.setCurrentItem(0);
+                }
+                break;
+            case R.id.iv_title_one:
+                if (viewPager.getCurrentItem() != 1){
+                    binding.include.ivTitleGank.setSelected(false);
+                    binding.include.ivTitleOne.setSelected(true);
+                    binding.include.ivTitleDou.setSelected(false);
+                    viewPager.setCurrentItem(1);
+                }
+                break;
+            case R.id.iv_title_dou:
+                if (viewPager.getCurrentItem() != 2){
+                    binding.include.ivTitleGank.setSelected(false);
+                    binding.include.ivTitleOne.setSelected(false);
+                    binding.include.ivTitleDou.setSelected(true);
+                    viewPager.setCurrentItem(2);
+                }
+                break;
+        }
     }
 
     @Override

@@ -32,6 +32,7 @@
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:paddingLeft="15dp"
+                android:onClick="@{listner.onClickMain}"
                 android:paddingRight="15dp">
 
                 <ImageView
@@ -58,6 +59,7 @@
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:onClick="@{listner.onClickMain}"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/titlebar_disco" />
 
@@ -65,6 +67,7 @@
                         android:id="@+id/iv_title_one"
                         android:layout_width="55dp"
                         android:layout_height="match_parent"
+                        android:onClick="@{listner.onClickMain}"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/titlebar_music" />
 
@@ -72,6 +75,7 @@
                         android:id="@+id/iv_title_dou"
                         android:layout_width="55dp"
                         android:layout_height="match_parent"
+                        android:onClick="@{listner.onClickMain}"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/titlebar_friends" />
 
@@ -99,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
+            android:onClick="@{listner.onClickMain}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_dialog_email" />

@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 public interface MainCLickListner {
-    void onClickOk(View view);
+    void onClickMain(View view);
 }
