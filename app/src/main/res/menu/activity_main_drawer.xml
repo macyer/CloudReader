@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_nav_homepage"
+            android:iconTint="@color/colorTheme"
+            android:title="项目主页" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_nav_scan"
+            android:title="扫码下载" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_nav_deedback"
+            android:title="问题反馈" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_nav_about"
+            android:title="关于云阅" />
+        <item
+            android:id="@+id/nav_night"
+            android:icon="@drawable/ic_nav_night"
+            android:title="夜间模式"
+            android:visible="false" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_nav_login"
+            android:title="登录Github账号" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_nav_exit"
+            android:title="退出应用" />
+    </group>
+
+</menu>
