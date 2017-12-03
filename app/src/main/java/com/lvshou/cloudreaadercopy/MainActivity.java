@@ -18,7 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.lvshou.cloudreaadercopy.ClickListner.MainCLickListner;
+import com.lvshou.cloudreaadercopy.clickListner.MainCLickListner;
 import com.lvshou.cloudreaadercopy.app.ConstantsImageUrl;
 import com.lvshou.cloudreaadercopy.databinding.ActivityMainBinding;
 import com.lvshou.cloudreaadercopy.databinding.NavHeaderMainBinding;

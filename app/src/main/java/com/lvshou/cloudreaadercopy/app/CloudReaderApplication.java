@@ -34,4 +34,6 @@ public class CloudReaderApplication extends Application {
         config.setToDefaults();
         res.updateConfiguration(config, res.getDisplayMetrics());
     }
+    
+    
 }
