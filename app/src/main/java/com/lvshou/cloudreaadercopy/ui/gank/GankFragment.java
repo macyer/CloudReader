@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import com.lvshou.cloudreaadercopy.R;
 import com.lvshou.cloudreaadercopy.base.BaseFragment;
-import com.lvshou.cloudreaadercopy.base.MyViewpagerAdapter;
+import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
 import com.lvshou.cloudreaadercopy.databinding.FragmentGankBinding;
 import com.lvshou.cloudreaadercopy.ui.gank.child.AndroidFragment;
 import com.lvshou.cloudreaadercopy.ui.gank.child.CustomFragment;
@@ -50,7 +50,7 @@ public class GankFragment extends BaseFragment<FragmentGankBinding>{
         mFragments.add(new CustomFragment());
         mFragments.add(AndroidFragment.newInstance("Android"));
 
-        MyViewpagerAdapter myViewpagerAdapter = new MyViewpagerAdapter(getChildFragmentManager(),mFragments,mTitleList);
+        BaseFragmentPagerAdapter myViewpagerAdapter = new BaseFragmentPagerAdapter(getChildFragmentManager(),mFragments,mTitleList);
         TabLayout tabLayout = getView(R.id.tab_gank);
         ViewPager viewPager = getView(R.id.vp_gank);
         viewPager.setAdapter(myViewpagerAdapter);

@@ -28,7 +28,7 @@ import com.lvshou.cloudreaadercopy.ui.one.OneFragment;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
 import com.lvshou.cloudreaadercopy.utils.PerfectClickListener;
 import com.lvshou.cloudreaadercopy.utils.ToastUtil;
-import com.lvshou.cloudreaadercopy.base.MyViewpagerAdapter;
+import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
 
 import java.util.ArrayList;
 
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
         fragments.add(new OneFragment());
         fragments.add(new BookFragment());
 
-        viewPager.setAdapter(new MyViewpagerAdapter(getSupportFragmentManager(),fragments));
+        viewPager.setAdapter(new BaseFragmentPagerAdapter(getSupportFragmentManager(),fragments));
         viewPager.setOffscreenPageLimit(2);
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(this);

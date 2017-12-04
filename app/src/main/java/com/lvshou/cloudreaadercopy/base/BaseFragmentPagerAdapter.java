@@ -10,20 +10,32 @@ import java.util.ArrayList;
  * Created by Lenovo on 2017/12/1.
  */
 
-public class MyViewpagerAdapter extends FragmentPagerAdapter {
+public class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragmentList;
     private ArrayList<String> titleList;
 
-    public MyViewpagerAdapter(FragmentManager fm) {
+    public BaseFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
-    public MyViewpagerAdapter(FragmentManager fm,ArrayList<Fragment> fragmentList) {
+
+    /**
+     * 没有title,只有fragment
+     * @param fm FragmentManager
+     * @param fragmentList 
+     */
+    public BaseFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentList) {
         super(fm);
         this.fragmentList = fragmentList;
     }
 
-    public MyViewpagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentList, ArrayList<String> titleList) {
+    /**
+     * title-fragment全部都有
+     * @param fm FragmentManager
+     * @param fragmentList
+     * @param titleList
+     */
+    public BaseFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentList, ArrayList<String> titleList) {
         super(fm);
         this.fragmentList = fragmentList;
         this.titleList = titleList;

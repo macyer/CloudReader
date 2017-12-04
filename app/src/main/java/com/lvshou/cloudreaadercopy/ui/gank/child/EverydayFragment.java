@@ -39,8 +39,11 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
 
     @Override
     protected void initView() {
+        
         initIds();
+        
         initAnimation();
+        
         initRecyclerView();
         
     }
@@ -80,7 +83,10 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
         animation.startNow();
     }
 
-
+    /**
+     * 显示此界面内部的Loading view
+     * @param isLoading
+     */
     private void showLoadingThis(boolean isLoading) {
         ll_loading.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         recyclerView.setVisibility(isLoading ? View.GONE : View.VISIBLE);
