@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.lvshou.cloudreaadercopy.R;
+
+import java.util.HashMap;
+
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Lenovo on 2017/12/1.
@@ -31,12 +37,13 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
      * mIsVisible 是否可见
      * mIsPrepared view初始化完毕
      */
-    private boolean mIsVisible,mIsPrepared;
+    private boolean mIsVisible, mIsPrepared;
     /**
-     * 是否第一次展示 
+     * 是否第一次展示
      */
     protected boolean mIsFirst = true;
 
+    private HashMap<String, CompositeDisposable> mDisposableMap;
 
     @Nullable
     @Override
@@ -70,6 +77,7 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
         initView();
         showContentView();
         mIsPrepared = true;
+        loadData();
     }
 
     protected <T extends View> T getView(int id) {
@@ -124,7 +132,7 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
         if (bindingView.getRoot().getVisibility() != View.VISIBLE)
             bindingView.getRoot().setVisibility(View.VISIBLE);
     }
-    
+
     protected void errLoading() {
         if (mLlProgressBar.getVisibility() != View.GONE)
             mLlProgressBar.setVisibility(View.GONE);
@@ -141,7 +149,8 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
      *
      * @return
      */
-    public abstract @LayoutRes int setContentView();
+    public abstract @LayoutRes
+    int setContentView();
 
     /**
      * 初始化view
@@ -159,7 +168,36 @@ public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment 
     /**
      * 刷新数据
      */
-    protected void onRefresh(){
-        
+    protected void onRefresh() {
+
+    }
+
+    protected void addBaseDisposable(Disposable disposable) {
+        if (mDisposableMap == null) {
+            mDisposableMap = new HashMap<>();
+        }
+        String key = getClass().getSimpleName();
+        if (mDisposableMap.get(key) != null) {
+            mDisposableMap.get(key).add(disposable);
+        } else {
+            mDisposableMap.put(key, new CompositeDisposable(disposable));
+        }
+    }
+
+    private void removeDisposable() {
+        if (mDisposableMap == null) return;
+        String key = getClass().getSimpleName();
+        if (!mDisposableMap.containsKey(key)) return;
+
+        if (mDisposableMap.get(key) != null) {
+            mDisposableMap.get(key).dispose();
+        }
+        mDisposableMap.remove(key);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        removeDisposable();
     }
 }
