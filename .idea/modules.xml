@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CloudReaaderCopy.iml" filepath="$PROJECT_DIR$/CloudReaaderCopy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/glide/glide.iml" filepath="$PROJECT_DIR$/library/glide/glide.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/http/http.iml" filepath="$PROJECT_DIR$/library/http/http.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/xrecyclerview/xrecyclerview.iml" filepath="$PROJECT_DIR$/library/xrecyclerview/xrecyclerview.iml" />

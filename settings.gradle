@@ -1,1 +1,1 @@
-include ':app', ':library:http', ':library:xrecyclerview'
+include ':app', ':library:http', ':library:xrecyclerview', ':library:glide'

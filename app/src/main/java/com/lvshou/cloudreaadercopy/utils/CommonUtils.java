@@ -1,9 +1,12 @@
 package com.lvshou.cloudreaadercopy.utils;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,6 +99,21 @@ public class CommonUtils {
                 group.removeView(child);
             }
         }
+    }
+
+    // 获取当前应用的版本号
+    public static String getVersionName(Context context) {
+        try {
+            PackageManager packageManager = context.getApplicationContext().getPackageManager();
+            PackageInfo packInfo = packageManager.getPackageInfo(context.getApplicationContext().getPackageName(), 0);
+            String version = packInfo.versionName;
+            if (!TextUtils.isEmpty(version)) {
+                return "V" + version;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "V1.0";
     }
 
 }

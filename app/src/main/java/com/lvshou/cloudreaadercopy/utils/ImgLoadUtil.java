@@ -2,10 +2,33 @@ package com.lvshou.cloudreaadercopy.utils;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.GenericTransitionOptions;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.TransitionOptions;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.lvshou.cloudreaadercopy.R;
+import com.lvshou.cloudreaadercopy.weiget.ninegrid.ImageAttr;
+import com.sunfusheng.glideimageview.*;
+import com.sunfusheng.glideimageview.progress.GlideApp;
+import com.sunfusheng.glideimageview.progress.GlideRequests;
+import com.sunfusheng.glideimageview.progress.OnGlideImageViewListener;
+import com.sunfusheng.glideimageview.util.DisplayUtil;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
@@ -14,7 +37,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  */
 
 public class ImgLoadUtil {
-
+    
     private static ImgLoadUtil instance;
 
     private ImgLoadUtil() {
@@ -36,11 +59,12 @@ public class ImgLoadUtil {
      * @param imageView 对应图片控件
      */
     public static void displayRandom(int imgNumber, String imageUrl, ImageView imageView) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(imageUrl)
                 .placeholder(getMusicDefaultPic(imgNumber))
                 .error(getMusicDefaultPic(imgNumber))
-                .crossFade(1500)
+                .transition(new DrawableTransitionOptions().crossFade(1500))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
@@ -62,15 +86,14 @@ public class ImgLoadUtil {
      * 用于干货item，将gif图转换为静态图
      */
     public static void displayGif(String url, ImageView imageView) {
-
-        Glide.with(imageView.getContext()).load(url)
-                .asBitmap()
-                .placeholder(R.mipmap.img_one_bi_one)
+        GlideApp.with(imageView)
+                .asGif()
+                .transition(new GenericTransitionOptions<GifDrawable>())
+                .load(url)
                 .error(R.mipmap.img_one_bi_one)
-//                .skipMemoryCache(true) //跳过内存缓存
-//                .crossFade(1000)
-//                .diskCacheStrategy(DiskCacheStrategy.SOURCE)// 缓存图片源文件（解决加载gif内存溢出问题）
-//                .into(new GlideDrawableImageViewTarget(imageView, 1));
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
                 .into(imageView);
     }
 
@@ -79,10 +102,11 @@ public class ImgLoadUtil {
      * 默认图区别
      */
     public static void displayEspImage(String url, ImageView imageView, int type) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(url)
-                .crossFade(500)
+                .transition(new DrawableTransitionOptions().crossFade(500))
                 .placeholder(getDefaultPic(type))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .error(getDefaultPic(type))
                 .into(imageView);
     }
@@ -102,14 +126,15 @@ public class ImgLoadUtil {
     /**
      * 显示高斯模糊效果（电影详情页）
      */
-    private static void displayGaussian(Context context, String url, ImageView imageView) {
+    private static void displayGaussian(String imageUrl, ImageView imageView) {
         // "23":模糊度；"4":图片缩放4倍后再进行模糊
-        Glide.with(context)
-                .load(url)
+        GlideApp.with(imageView)
+                .load(imageUrl)
                 .error(R.mipmap.stackblur_default)
                 .placeholder(R.mipmap.stackblur_default)
-                .crossFade(500)
-                .bitmapTransform(new BlurTransformation(context, 23, 4))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .transition(new DrawableTransitionOptions().crossFade(500))
+                .transform(new MultiTransformation<>(new GlideCircleTransform(imageView.getContext()),new BlurTransformation(imageView.getContext(),34,4)))
                 .into(imageView);
     }
 
@@ -117,11 +142,11 @@ public class ImgLoadUtil {
      * 加载圆角图,暂时用到显示头像
      */
     public static void displayCircle(ImageView imageView, String imageUrl) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(imageUrl)
-                .crossFade(500)
                 .error(R.mipmap.ic_avatar_default)
                 .transform(new GlideCircleTransform(imageView.getContext()))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
@@ -141,10 +166,11 @@ public class ImgLoadUtil {
      */
     @BindingAdapter("android:showImg")
     public static void showImg(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(url)
-                .crossFade(500)
+                .transition(new DrawableTransitionOptions().crossFade(500))
                 .error(getDefaultPic(0))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
@@ -153,12 +179,13 @@ public class ImgLoadUtil {
      */
     @BindingAdapter("android:showMovieImg")
     public static void showMovieImg(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(url)
-                .crossFade(500)
+                .transition(new DrawableTransitionOptions().crossFade(500))
                 .override((int) CommonUtils.getDimens(R.dimen.movie_detail_width), (int) CommonUtils.getDimens(R.dimen.movie_detail_height))
                 .placeholder(getDefaultPic(0))
                 .error(getDefaultPic(0))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
@@ -167,12 +194,13 @@ public class ImgLoadUtil {
      */
     @BindingAdapter("android:showBookImg")
     public static void showBookImg(ImageView imageView, String url) {
-        Glide.with(imageView.getContext())
+        GlideApp.with(imageView)
                 .load(url)
-                .crossFade(500)
-                .override((int) CommonUtils.getDimens(R.dimen.book_detail_width), (int) CommonUtils.getDimens(R.dimen.book_detail_height))
+                .transition(new DrawableTransitionOptions().crossFade(500))
+                .override((int) CommonUtils.getDimens(R.dimen.movie_detail_width), (int) CommonUtils.getDimens(R.dimen.movie_detail_height))
                 .placeholder(getDefaultPic(2))
                 .error(getDefaultPic(2))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
@@ -181,6 +209,6 @@ public class ImgLoadUtil {
      */
     @BindingAdapter("android:showImgBg")
     public static void showImgBg(ImageView imageView, String url) {
-        displayGaussian(imageView.getContext(), url, imageView);
+        displayGaussian(url, imageView);
     }
 }

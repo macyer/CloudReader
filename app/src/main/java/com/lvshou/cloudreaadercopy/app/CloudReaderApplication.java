@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
+import com.bumptech.glide.Glide;
 import com.lvshou.cloudreaadercopy.utils.DebugUtil;
 import com.lvshou.http.HttpUtils;
 
@@ -34,6 +35,18 @@ public class CloudReaderApplication extends Application {
         config.setToDefaults();
         res.updateConfiguration(config, res.getDisplayMetrics());
     }
-    
-    
+
+    @Override
+    public void onTrimMemory(int level)
+    {
+        super.onTrimMemory(level);
+        Glide.with(this).onTrimMemory(level);
+    }
+
+    @Override
+    public void onLowMemory()
+    {
+        super.onLowMemory();
+        Glide.with(this).onLowMemory();
+    }
 }

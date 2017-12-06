@@ -136,4 +136,22 @@ public class AndroidBean implements Serializable {
     public String getImage_url() {
         return image_url;
     }
+
+    @Override
+    public String toString() {
+        return "AndroidBean{" +
+                "type_title='" + type_title + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", _id='" + _id + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                ", desc='" + desc + '\'' +
+                ", publishedAt='" + publishedAt + '\'' +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", used=" + used +
+                ", who='" + who + '\'' +
+                ", source='" + source + '\'' +
+                ", images=" + images +
+                '}';
+    }
 }

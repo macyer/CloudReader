@@ -6,9 +6,9 @@ import io.reactivex.disposables.Disposable;
  * Created by Lenovo on 2017/12/5.
  */
 
-public interface RequestImpl {
+public interface RequestImpl<T> {
     
-    void loadSuccess(Object obj);
+    void loadSuccess(T t);
     
     void loadFail(Throwable throwable);
     

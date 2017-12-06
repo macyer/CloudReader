@@ -18,6 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.load.engine.cache.DiskCache;
+import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
 import com.lvshou.cloudreaadercopy.clickListner.MainCLickListner;
 import com.lvshou.cloudreaadercopy.app.ConstantsImageUrl;
 import com.lvshou.cloudreaadercopy.databinding.ActivityMainBinding;
@@ -29,6 +33,7 @@ import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
 import com.lvshou.cloudreaadercopy.utils.PerfectClickListener;
 import com.lvshou.cloudreaadercopy.utils.ToastUtil;
 import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
+import com.lvshou.cloudreaadercopy.weiget.ninegrid.NineImageViewActivity;
 
 import java.util.ArrayList;
 
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setListner(this);
         initIds();
-
+                
         initToolbar();
 
         initDrawer();
@@ -145,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
                             break;
                         case R.id.ll_nav_about:
                             ToastUtil.showToast("关于云阅");
+                            startActivity(new Intent(MainActivity.this, NineImageViewActivity.class));
                             break;
                         case R.id.ll_nav_scan_download:
                             ToastUtil.showToast("扫码下载");

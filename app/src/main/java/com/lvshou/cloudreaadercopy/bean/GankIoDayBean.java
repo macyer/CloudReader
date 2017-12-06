@@ -18,7 +18,30 @@ public class GankIoDayBean implements Serializable {
     @ParamNames("category")
     private List<String> category;
 
-    public static class ResultsBean {
+    public List<AndroidBean> getCategoryList(String category) {
+        switch (category) {
+            case "Android":
+                return getResults().getAndroid();
+            case "iOS":
+                return getResults().getiOS();
+            case "前端":
+                return getResults().getFront();
+            case "App":
+                return getResults().getApp();
+            case "休息视频":
+                return getResults().getRestMovie();
+            case "拓展资源":
+                return getResults().getResource();
+            case "瞎推荐":
+                return getResults().getRecommend();
+            case "福利":
+                return getResults().getWelfare();
+            default:
+                return null;
+        }
+    }
+
+    private static class ResultsBean {
         /**
          * _id : 56cc6d23421aa95caa707a69
          * createdAt : 2015-08-06T07:15:52.65Z

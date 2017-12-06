@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.lvshou.cloudreaadercopy.MainActivity;
 import com.lvshou.cloudreaadercopy.R;
 import com.lvshou.cloudreaadercopy.databinding.ActivitySplashBinding;
+import com.sunfusheng.glideimageview.progress.GlideApp;
 
 /**
  * Created by Lenovo on 2017/11/30.
@@ -45,10 +47,11 @@ public class SplashEntity {
 
     @BindingAdapter("splash_iv_pic")
     public static void setImage(ImageView image, String ivPic) {
-        Glide.with(image.getContext())
+        GlideApp.with(image)
                 .load(ivPic)
                 .placeholder(R.mipmap.img_transition_default)
                 .error(R.mipmap.img_transition_default)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(image);
     }
 

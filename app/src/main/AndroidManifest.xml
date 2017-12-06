@@ -34,6 +34,12 @@
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <!--九宫格-->
+        <activity android:name=".weiget.ninegrid.NineImageViewActivity"/>
+        <!--图片浏览-->
+        <activity android:name=".weiget.photoview.ImagesActivity"
+            android:theme="@style/ImagesStyle"/>
     </application>
 
 </manifest>
