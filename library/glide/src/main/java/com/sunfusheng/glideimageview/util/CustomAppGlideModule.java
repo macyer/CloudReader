@@ -21,7 +21,7 @@ import java.io.InputStream;
  * Created by Lenovo on 2017/12/6.
  */
 
-public class BaseAppGlideModule extends AppGlideModule {
+public class CustomAppGlideModule extends AppGlideModule {
 
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {

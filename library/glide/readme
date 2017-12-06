@@ -1,6 +1,8 @@
+资源来源：https://github.com/sfsheng0322/GlideImageView
+
+
 application-设置内存相关
 BaseAppGlideModule设置默认下载相关
-资源来源：https://github.com/sfsheng0322/GlideImageView
 
 
 使用方式
@@ -33,7 +35,7 @@ GlideApp.with(imageView)
 
 
 
-public class BaseAppGlideModule extends AppGlideModule {
+public class CustomAppGlideModule extends AppGlideModule {
 
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
