@@ -1,3 +1,85 @@
 application-设置内存相关
 BaseAppGlideModule设置默认下载相关
 资源来源：https://github.com/sfsheng0322/GlideImageView
+
+
+使用方式
+
+GlideApp.with(imageView)
+        //图片格式
+        .Bitmap()
+        .load(url)
+        //修改大小
+        .override((int) CommonUtils.getDimens(R.dimen.movie_detail_width), (int) CommonUtils.getDimens(R.dimen.movie_detail_height))
+        //占位符
+        .placeholder(getDefaultPic(2))
+        //错误
+        .error(getDefaultPic(2))
+        //缓存策略
+        .diskCacheStrategy(DiskCacheStrategy.ALL)
+        //动画
+        .transition(new DrawableTransitionOptions().crossFade(500))
+        //MultiTransformation 多种属性
+        //GlideCircleTransform 加载圆角图 
+        //BlurTransformation  "23":模糊度；"4":图片缩放4倍后再进行模糊 
+        .transform(new MultiTransformation<>(new GlideCircleTransform(imageView.getContext()),new BlurTransformation(imageView.getContext(),34,4)))
+        .into(imageView);
+        
+        
+        
+        
+        
+
+
+
+
+public class BaseAppGlideModule extends AppGlideModule {
+
+    @Override
+    public void applyOptions(Context context, GlideBuilder builder) {
+        super.applyOptions(context, builder);
+        //设置内存缓存
+        int memoryCacheSizeBytes = 1024 * 1024 * 250; // 250mb
+        builder.setMemoryCache(new LruResourceCache(memoryCacheSizeBytes));
+        //设置内存缓存
+        MemorySizeCalculator calculator = new MemorySizeCalculator.Builder(context)
+                .setMemoryCacheScreens(2)
+                .build();
+        builder.setMemoryCache(new LruResourceCache(calculator.getMemoryCacheSize()));
+        //设置默认选项
+        builder.setDefaultRequestOptions(
+                new RequestOptions()
+                        .format(DecodeFormat.PREFER_RGB_565)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .disallowHardwareConfig());
+        //设置日志级别
+        builder.setLogLevel(Log.DEBUG);
+    }
+
+    /**
+     * 完全移除和替换 Glide 对某种特定类型的默认处理，例如一个网络库，你应该使用 replace()
+     *
+     * @param context
+     * @param glide
+     * @param registry
+     */
+    @Override
+    public void registerComponents(Context context, Glide glide, Registry registry) {
+        super.registerComponents(context, glide, registry);
+        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory());
+    }
+
+    /**
+     * 为了维持对 Glide v3 的 GlideModules 的向后兼容性，
+     * Glide 仍然会解析应用程序和所有被包含的库中的 AndroidManifest.xml 文件，
+     * 并包含在这些清单中列出的旧 GlideModules 模块类。
+     * 如果你已经迁移到 Glide v4 的 AppGlideModule 和 LibraryGlideModule ，
+     * 你可以完全禁用清单解析。这样可以改善 Glide 的初始启动时间，并避免尝试解析元数据时的一些潜在问题
+     *
+     * @return
+     */
+    @Override
+    public boolean isManifestParsingEnabled() {
+        return false;
+    }
+}
