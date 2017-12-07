@@ -74,5 +74,4 @@
     <string name="string_url_gankio">http://gank.io/api</string>
     <string name="string_url_douban">https://developers.douban.com/wiki/?title=terms</string>
 
-    <string name="image_index">%1$d/%2$d</string>
 </resources>

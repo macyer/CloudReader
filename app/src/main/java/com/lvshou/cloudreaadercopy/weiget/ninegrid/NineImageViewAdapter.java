@@ -3,6 +3,8 @@ package com.lvshou.cloudreaadercopy.weiget.ninegrid;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.lvshou.widget.photoview.ImageAttr;
+
 import java.io.Serializable;
 import java.util.List;
 

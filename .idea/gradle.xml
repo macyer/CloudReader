@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/glide" />
             <option value="$PROJECT_DIR$/library/http" />
+            <option value="$PROJECT_DIR$/library/utils" />
             <option value="$PROJECT_DIR$/library/widget" />
             <option value="$PROJECT_DIR$/library/xrecyclerview" />
           </set>

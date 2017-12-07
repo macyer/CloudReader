@@ -1,7 +1,5 @@
 package com.lvshou.cloudreaadercopy.utils;
 
-import java.lang.reflect.Type;
-
 /**
  * Created by Lenovo on 2017/12/3.
  */

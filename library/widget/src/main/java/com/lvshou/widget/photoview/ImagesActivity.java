@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.weiget.photoview;
+package com.lvshou.widget.photoview;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -13,10 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.chrisbanes.photoview.PhotoView;
-import com.lvshou.cloudreaadercopy.R;
-import com.lvshou.cloudreaadercopy.utils.ColorUtil;
-import com.lvshou.cloudreaadercopy.utils.StatusBarUtil;
-import com.lvshou.cloudreaadercopy.weiget.ninegrid.ImageAttr;
+import com.lvshou.utils.ColorUtil;
+import com.lvshou.utils.StatusBarUtil;
+import com.lvshou.widget.R;
 import com.sunfusheng.glideimageview.util.DisplayUtil;
 
 import java.util.List;

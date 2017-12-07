@@ -38,7 +38,7 @@
         <!--九宫格-->
         <activity android:name=".weiget.ninegrid.NineImageViewActivity"/>
         <!--图片浏览-->
-        <activity android:name=".weiget.photoview.ImagesActivity"
+        <activity android:name="com.lvshou.widget.photoview.ImagesActivity"
             android:theme="@style/ImagesStyle"/>
     </application>
 

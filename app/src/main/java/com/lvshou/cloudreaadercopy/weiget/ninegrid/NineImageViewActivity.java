@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lvshou.cloudreaadercopy.R;
-import com.lvshou.cloudreaadercopy.utils.StatusBarUtil;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.model.ImageModel;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.model.ModelUtil;
+import com.lvshou.utils.StatusBarUtil;
+import com.lvshou.widget.photoview.ImageAttr;
 
 import java.util.ArrayList;
 import java.util.List;

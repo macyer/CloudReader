@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.utils;
+package com.lvshou.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

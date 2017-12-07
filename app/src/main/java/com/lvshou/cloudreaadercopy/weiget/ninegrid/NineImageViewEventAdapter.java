@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.lvshou.cloudreaadercopy.weiget.photoview.ImagesActivity;
+import com.lvshou.widget.photoview.ImageAttr;
+import com.lvshou.widget.photoview.ImagesActivity;
 
 import java.io.Serializable;
 import java.util.List;

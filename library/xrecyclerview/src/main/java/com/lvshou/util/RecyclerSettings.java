@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.utils;
+package com.lvshou.util;
 
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;

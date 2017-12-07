@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.weiget.photoview;
+package com.lvshou.widget.photoview;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -21,8 +21,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.github.chrisbanes.photoview.OnOutsidePhotoTapListener;
 import com.github.chrisbanes.photoview.OnPhotoTapListener;
 import com.github.chrisbanes.photoview.PhotoView;
-import com.lvshou.cloudreaadercopy.R;
-import com.lvshou.cloudreaadercopy.weiget.ninegrid.ImageAttr;
+import com.lvshou.widget.R;
 import com.sunfusheng.glideimageview.GlideImageLoader;
 import com.sunfusheng.glideimageview.progress.CircleProgressView;
 import com.sunfusheng.glideimageview.util.DisplayUtil;

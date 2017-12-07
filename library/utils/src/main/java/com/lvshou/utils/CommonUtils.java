@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.utils;
+package com.lvshou.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowManager;
-
-import com.lvshou.cloudreaadercopy.app.CloudReaderApplication;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -71,7 +69,7 @@ public class CommonUtils {
     }
 
     public static Resources getResoure() {
-        return CloudReaderApplication.getInstance().getResources();
+        return ContextUtils.getContext().getResources();
     }
 
     public static String[] getStringArray(int resid) {

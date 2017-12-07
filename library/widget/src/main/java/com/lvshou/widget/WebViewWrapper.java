@@ -16,6 +16,8 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.sunfusheng.glideimageview.util.DisplayUtil;
+
 /**
  * Created by sunfusheng on 2017/2/15.
  */

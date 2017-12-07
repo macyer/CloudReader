@@ -30,10 +30,10 @@ import com.lvshou.cloudreaadercopy.ui.book.BookFragment;
 import com.lvshou.cloudreaadercopy.ui.gank.GankFragment;
 import com.lvshou.cloudreaadercopy.ui.one.OneFragment;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
-import com.lvshou.cloudreaadercopy.utils.PerfectClickListener;
 import com.lvshou.cloudreaadercopy.utils.ToastUtil;
 import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.NineImageViewActivity;
+import com.lvshou.utils.PerfectClickListener;
 
 import java.util.ArrayList;
 

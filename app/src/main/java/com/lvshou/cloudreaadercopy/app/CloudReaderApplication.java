@@ -5,8 +5,9 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 
 import com.bumptech.glide.Glide;
-import com.lvshou.cloudreaadercopy.utils.DebugUtil;
 import com.lvshou.http.HttpUtils;
+import com.lvshou.utils.ContextUtils;
+import com.lvshou.utils.LogUtil;
 
 /**
  * Created by Lenovo on 2017/11/30.
@@ -24,8 +25,8 @@ public class CloudReaderApplication extends Application {
     public void onCreate() {
         super.onCreate();
         cloudReaderApplication = this;
-        HttpUtils.getInstance().init(this, DebugUtil.DEBUG);
-        
+        HttpUtils.getInstance().init(this, LogUtil.LOG_DEBUG);
+        ContextUtils.init(this);
         initTextSize();
     }
 

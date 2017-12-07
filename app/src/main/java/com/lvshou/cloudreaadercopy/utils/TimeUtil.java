@@ -2,6 +2,8 @@ package com.lvshou.cloudreaadercopy.utils;
 
 import android.text.format.Time;
 
+import com.lvshou.utils.LogUtil;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -373,7 +375,7 @@ public class TimeUtil {
             // 将给定的字符串中的日期提取出来
             date = sdf.parse(time);
         } catch (Exception e) {
-            DebugUtil.debug("--时间解析-->", "错误");
+            LogUtil.e("--时间解析-->", "错误");
             return time;
         }
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -389,7 +391,7 @@ public class TimeUtil {
             // 将给定的字符串中的日期提取出来
             date = sdf.parse(time);
         } catch (Exception e) {
-            DebugUtil.debug("--时间解析-->", "错误");
+            LogUtil.e("--时间解析-->", "错误");
             return time;
         }
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -405,7 +407,7 @@ public class TimeUtil {
             // 将给定的字符串中的日期提取出来
             date = sdf.parse(time);
         } catch (Exception e) {
-            DebugUtil.debug("--时间解析-->", "错误");
+            LogUtil.e("--时间解析-->", "错误");
             return time;
         }
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");

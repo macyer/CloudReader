@@ -1,6 +1,5 @@
-package com.lvshou.cloudreaadercopy.utils;
+package com.lvshou.utils;
 
-import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Typeface;
@@ -32,9 +31,6 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 
-import com.lvshou.cloudreaadercopy.app.CloudReaderApplication;
-
-import jp.wasabeef.glide.transformations.internal.Utils;
 
 import static android.graphics.BlurMaskFilter.Blur;
 
@@ -515,7 +511,7 @@ public class SpannableStringUtils {
             }
             if (imageIsBitmap || imageIsDrawable || imageIsUri || imageIsResourceId) {
                 if (imageIsBitmap) {
-                    mBuilder.setSpan(new ImageSpan(CloudReaderApplication.getInstance(), bitmap), start, end, flag);
+                    mBuilder.setSpan(new ImageSpan(ContextUtils.getContext(), bitmap), start, end, flag);
                     bitmap = null;
                     imageIsBitmap = false;
                 } else if (imageIsDrawable) {
@@ -523,11 +519,11 @@ public class SpannableStringUtils {
                     drawable = null;
                     imageIsDrawable = false;
                 } else if (imageIsUri) {
-                    mBuilder.setSpan(new ImageSpan(CloudReaderApplication.getInstance(), uri), start, end, flag);
+                    mBuilder.setSpan(new ImageSpan(ContextUtils.getContext(), uri), start, end, flag);
                     uri = null;
                     imageIsUri = false;
                 } else {
-                    mBuilder.setSpan(new ImageSpan(CloudReaderApplication.getInstance(), resourceId), start, end, flag);
+                    mBuilder.setSpan(new ImageSpan(ContextUtils.getContext(), resourceId), start, end, flag);
                     resourceId = 0;
                     imageIsResourceId = false;
                 }

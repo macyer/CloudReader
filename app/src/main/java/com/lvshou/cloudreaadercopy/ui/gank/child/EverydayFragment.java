@@ -17,8 +17,8 @@ import com.lvshou.cloudreaadercopy.databinding.HeaderItemEverydayBinding;
 import com.lvshou.cloudreaadercopy.http.RequestImpl;
 import com.lvshou.cloudreaadercopy.model.EverydayModel;
 import com.lvshou.cloudreaadercopy.ui.adapter.EveryDayAdapter;
-import com.lvshou.cloudreaadercopy.utils.RecyclerSettings;
 import com.lvshou.cloudreaadercopy.utils.TimeUtil;
+import com.lvshou.util.RecyclerSettings;
 import com.lvshou.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;

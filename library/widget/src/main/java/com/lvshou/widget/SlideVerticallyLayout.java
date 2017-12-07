@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.weiget;
+package com.lvshou.widget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

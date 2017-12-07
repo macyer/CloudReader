@@ -17,7 +17,6 @@ public class ToastUtil {
 
     public static void showToast(String text) {
         if (CloudReaderApplication.getInstance() == null)
-            Log.e("========","=======showToast====");
         if (mToast == null) {
             mToast = Toast.makeText(CloudReaderApplication.getInstance(), text, Toast.LENGTH_SHORT);
         }

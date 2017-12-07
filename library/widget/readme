@@ -1,1 +1,7 @@
 WebViewWrapper WebView布局
+
+
+
+<!--图片浏览，需要在清单文件注册-->
+<activity android:name="com.lvshou.widget.photoview.ImagesActivity"
+    android:theme="@style/ImagesStyle"/>

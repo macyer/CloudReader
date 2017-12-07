@@ -3,16 +3,26 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
 
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /*编译api降低到对应版本*/
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
 
+        /*so依赖*/
+        ndk {
+            abiFilters "armeabi"
+        }
+
+        /*编译版本*/
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
     }
 
     buildTypes {
@@ -27,8 +37,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation project(':library:utils')
+    implementation project(':library:glide')
+
+    //图片浏览
+    api 'com.github.chrisbanes:PhotoView:2.1.3'
 }

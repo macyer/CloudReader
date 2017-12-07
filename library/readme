@@ -1,0 +1,25 @@
+implementation project(':library:utils')
+implementation project(':library:http')
+implementation project(':library:glide')
+implementation project(':library:widget')
+implementation project(':library:xrecyclerview')
+
+utils：  Application初始化ContextUtils.init(this);
+        封装了android.support及其gson，基础工具类，其他所有的model都使用此基础model
+        颜色工具类，StatusBarUtils
+
+glide：包括图片下载，AppGlideModule实现了公共参数 ->  AppGlide
+                    轮播图，   banner
+                    GlideImageView   图片下载自定义view，封装glide
+                    ShapeImageView   提供为图片添加圆角、边框、剪裁到圆形或其他形状等功能。
+
+http:封装retrofit框架
+
+widget:     PhotoView图片浏览框架
+            WebViewWrapper
+            DraggableFrameLayout
+            SlideVerticallyLayout
+xrecyclerview：两种方式下拉加载RecyclerView
+                    xrecyclerview
+                    LoadMoreAdapterWrapper封装类，
+

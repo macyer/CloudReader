@@ -27,8 +27,34 @@ GlideApp.with(imageView)
         .transform(new MultiTransformation<>(new GlideCircleTransform(imageView.getContext()),new BlurTransformation(imageView.getContext(),34,4)))
         .into(imageView);
         
-        
-        
+image13.setCornerRadius(10);
+image13.setBorderWidth(2);
+image13.setBorderColor(getResources().getColor(R.color.blue));
+image13.setPressedModeEnabled(true);
+image13.setPressedBorderWidth(2);
+image13.setPressedBorderColor(getResources().getColor(R.color.blue));
+image13.setPressedMaskColor(getResources().getColor(R.color.transparent20));
+image13.loadImage(url1, R.color.placeholder);
+image13.setOnClickListener(v -> {
+});
+
+<com.sunfusheng.glideimageview.GlideImageView
+    android:id="@+id/image24"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_margin="5dp"
+    android:layout_weight="1"
+    android:clickable="true"
+    android:focusable="true"
+    app:riv_border_color="@color/orange"
+    app:riv_border_width="2dp"
+    app:riv_is_circle="true"
+    app:riv_pressed_border_color="@color/orange"
+    app:riv_pressed_border_width="2dp"
+    app:riv_pressed_mask_color="@color/placeholder_orange"
+    app:riv_pressed_mode_enabled="true"/>
+
+
         
         
 

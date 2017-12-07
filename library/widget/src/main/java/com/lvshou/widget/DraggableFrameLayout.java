@@ -1,4 +1,4 @@
-package com.lvshou.cloudreaadercopy.weiget;
+package com.lvshou.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
