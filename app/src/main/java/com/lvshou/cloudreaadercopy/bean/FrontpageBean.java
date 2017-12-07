@@ -359,6 +359,14 @@ public class FrontpageBean implements Serializable {
                 public void setRandpic_desc(String randpic_desc) {
                     this.randpic_desc = randpic_desc;
                 }
+
+                @Override
+                public String toString() {
+                    return "ResultBeanX{" +
+                            "randpic='" + randpic + '\'' +
+                            ", code='" + code + '\'' +
+                            '}';
+                }
             }
         }
 

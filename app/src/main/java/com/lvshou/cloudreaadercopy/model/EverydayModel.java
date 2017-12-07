@@ -1,11 +1,8 @@
 package com.lvshou.cloudreaadercopy.model;
 
-import android.text.TextUtils;
-import android.util.Log;
-
 import com.lvshou.cloudreaadercopy.app.ConstantsImageUrl;
 import com.lvshou.cloudreaadercopy.bean.AndroidBean;
-import com.lvshou.cloudreaadercopy.bean.GankIoDayBean;
+import com.lvshou.cloudreaadercopy.bean.FrontpageBean;
 import com.lvshou.cloudreaadercopy.http.HttpClient;
 import com.lvshou.cloudreaadercopy.http.RequestImpl;
 
@@ -13,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+
+import com.lvshou.cloudreaadercopy.bean.FrontpageBean.ResultBeanXXXXXXXXXXXXXX.FocusBean.ResultBeanX;
 
 /**
  * Created by Lenovo on 2017/12/5.
@@ -39,48 +36,54 @@ public class EverydayModel {
         this.day = day;
     }
 
+    public void getBannerData(RequestImpl request) {
+        Disposable disposable = HttpClient.Builder.getTingIoServer().getFrontpage()
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.newThread())
+                .map((Function<FrontpageBean, List<ResultBeanX>>) bean -> {
+                    if (null != bean && null != bean.getResult() && null != bean.getResult().getFocus() && null != bean.getResult().getFocus().getResult()) {
+                        return bean.getResult().getFocus().getResult();
+                    }
+                    return new ArrayList<>();
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(strings -> {
+                    if (strings.size() > 0) request.loadSuccess(strings);
+                    else request.loadFail(new Throwable("size = 0"));
+                }, throwable -> request.loadFail(throwable));
+        request.disposable(disposable);
+    }
+
     public void getRecyclerData(RequestImpl request) {
         Disposable disposable = HttpClient.Builder
                 .getGankIoServer()
                 .getGankIoDay(year, month, day)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.newThread())
-                .map(new Function<GankIoDayBean, List<List<AndroidBean>>>() {
-                    @Override
-                    public List<List<AndroidBean>> apply(GankIoDayBean gankIoDayBean) throws Exception {
-                        List<List<AndroidBean>> lists = new ArrayList<>();
-                        if (!gankIoDayBean.isError() && gankIoDayBean.getCategory() != null && gankIoDayBean.getCategory().size() > 0) {
-                            for (String title : gankIoDayBean.getCategory()) {
-                                List<AndroidBean> list = gankIoDayBean.getCategoryList(title);
-                                if (gankIoDayBean.getCategoryList(title) != null && gankIoDayBean.getCategoryList(title).size() > 0) {
-                                    //没有将size大于3的集合拆分，另外需要添加图片
+                .map(gankIoDayBean -> {
+                    List<List<AndroidBean>> lists = new ArrayList<>();
+                    if (!gankIoDayBean.isError() && gankIoDayBean.getCategory() != null && gankIoDayBean.getCategory().size() > 0) {
+                        for (String title : gankIoDayBean.getCategory()) {
+                            List<AndroidBean> list = gankIoDayBean.getCategoryList(title);
+                            if (gankIoDayBean.getCategoryList(title) != null && gankIoDayBean.getCategoryList(title).size() > 0) {
+                                //没有将size大于3的集合拆分，另外需要添加图片
 //                                    AndroidBean bean = new AndroidBean();
 //                                    bean.setType_title(title);
 //                                    ArrayList<AndroidBean> androidBeen = new ArrayList<>();
 //                                    androidBeen.add(bean);
 //                                    lists.add(androidBeen);
 //                                    lists.add(list);
-                                    //=========================
-                                    addUrlList(lists, list, title);
-                                }
+                                //=========================
+                                addUrlList(lists, list, title);
                             }
                         }
-                        return lists;
                     }
+                    return lists;
                 })
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<List<AndroidBean>>>() {
-                    @Override
-                    public void accept(List<List<AndroidBean>> arrayLists) throws Exception {
-                        request.loadSuccess(arrayLists);
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        request.loadFail(throwable);
-                    }
-                });
-        request.addDisposable(disposable);
+                .subscribe(arrayLists -> request.loadSuccess(arrayLists), 
+                        throwable -> request.loadFail(throwable));
+        request.disposable(disposable);
     }
 
     // subList没有实现序列化！缓存时会出错！

@@ -1,6 +1,8 @@
 package com.lvshou.cloudreaadercopy.ui.gank.child;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -8,9 +10,11 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.lvshou.cloudreaadercopy.R;
 import com.lvshou.cloudreaadercopy.base.BaseFragment;
 import com.lvshou.cloudreaadercopy.bean.AndroidBean;
+import com.lvshou.cloudreaadercopy.bean.FrontpageBean;
 import com.lvshou.cloudreaadercopy.databinding.FooterItemEverydayBinding;
 import com.lvshou.cloudreaadercopy.databinding.FragmentGankEverydayBinding;
 import com.lvshou.cloudreaadercopy.databinding.HeaderItemEverydayBinding;
@@ -18,10 +22,16 @@ import com.lvshou.cloudreaadercopy.http.RequestImpl;
 import com.lvshou.cloudreaadercopy.model.EverydayModel;
 import com.lvshou.cloudreaadercopy.ui.adapter.EveryDayAdapter;
 import com.lvshou.cloudreaadercopy.utils.TimeUtil;
+import com.lvshou.cloudreaadercopy.weiget.banner.BannerImageLoader;
 import com.lvshou.util.RecyclerSettings;
+import com.lvshou.utils.LogUtil;
 import com.lvshou.xrecyclerview.XRecyclerView;
+import com.sunfusheng.glideimageview.progress.GlideApp;
+import com.youth.banner.loader.ImageLoader;
+import com.lvshou.cloudreaadercopy.bean.FrontpageBean.ResultBeanXXXXXXXXXXXXXX.FocusBean.ResultBeanX;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import io.reactivex.disposables.Disposable;
@@ -48,9 +58,12 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
     private String month = getTodayTime().get(1);
     private String day = getTodayTime().get(2);
 
-    private List<List<AndroidBean>> mListsAndroidBean;
+    private List<List<AndroidBean>> mListsAndroidBean = new ArrayList<>();
+    private ArrayList<String> mBannerImages = new ArrayList<>();
 
     private EveryDayAdapter everyDayAdapter;
+
+    private boolean isFirst = true;
 
     @Override
     public int setContentView() {
@@ -115,24 +128,26 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
         else animation.cancel();
     }
 
+
     @Override
     protected void loadData() {
-
+        if (!isFirst) return;
         showLoadingThis(true);
         everydayModel.setData(getTodayTime().get(0), getTodayTime().get(1), getTodayTime().get(2));
         loadBannerPic();
         loadContentData();
 
     }
-    
+
     private void loadContentData() {
         everydayModel.getRecyclerData(new RequestImpl<List<List<AndroidBean>>>() {
             @Override
             public void loadSuccess(List<List<AndroidBean>> lists) {
-                if (mListsAndroidBean!=null && mListsAndroidBean.size()>0)
-                    mListsAndroidBean.clear();
                 if (lists != null && lists.size() > 0) {
-                    mListsAndroidBean = lists;
+                    isFirst = false;
+                    if (mListsAndroidBean != null && mListsAndroidBean.size() > 0)
+                        mListsAndroidBean.clear();
+                    mListsAndroidBean.addAll(lists);
                     setAdapter(mListsAndroidBean);
                     showLoadingThis(false);
                 } else {
@@ -146,7 +161,7 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
             }
 
             @Override
-            public void addDisposable(Disposable disposable) {
+            public void disposable(Disposable disposable) {
                 addBaseDisposable(disposable);
             }
         });
@@ -159,7 +174,7 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
         recyclerView.setAdapter(everyDayAdapter);
         everyDayAdapter.notifyDataSetChanged();
     }
-    
+
     /**
      * 没请求到数据就取缓存，没缓存一直请求前一天数据
      */
@@ -173,6 +188,61 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
     }
 
     private void loadBannerPic() {
+        everydayModel.getBannerData(new RequestImpl() {
+            @Override
+            public void loadSuccess(Object o) {
+                mBannerImages.clear();
+                ArrayList<ResultBeanX> resultBeanXES = (ArrayList<ResultBeanX>) o;
+                for (ResultBeanX resultBeanX:resultBeanXES){
+                    mBannerImages.add(resultBeanX.getRandpic());
+                }
+                
+                headerBinding.banner.setImageLoader(new BannerImageLoader());
+                headerBinding.banner.isAutoPlay(true);
+                headerBinding.banner.setDelayTime(4000);
+                headerBinding.banner.setImages(mBannerImages);
+                headerBinding.banner.start();
+
+                headerBinding.banner.setOnBannerListener(position -> {
+                    // 链接没有做缓存，如果轮播图使用的缓存则点击图片无效
+                    if (resultBeanXES.get(position) != null && resultBeanXES.get(position).getCode() != null
+                            && resultBeanXES.get(position).getCode().startsWith("http")) {
+//                        WebViewActivity.loadUrl(getContext(), mBannerImages.get(position).getCode(), "加载中...");
+                    }
+                });
+            }
+
+            @Override
+            public void loadFail(Throwable throwable) {
+                LogUtil.e(throwable.getMessage() + throwable.getStackTrace() + throwable.getLocalizedMessage());
+            }
+
+            @Override
+            public void disposable(Disposable disposable) {
+                addBaseDisposable(disposable);
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (null != headerBinding && null != headerBinding.banner)
+            headerBinding.banner.startAutoPlay();
+    }
+
+    @Override
+    protected void onInVisible() {
+        super.onInVisible();
+        if (null != headerBinding && null != headerBinding.banner)
+            headerBinding.banner.stopAutoPlay();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // 失去焦点，否则RecyclerView第一个item会回到顶部
+        bindingView.xrvEveryday.setFocusable(false);
     }
 
     /**

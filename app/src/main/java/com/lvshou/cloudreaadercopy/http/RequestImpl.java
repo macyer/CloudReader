@@ -12,6 +12,6 @@ public interface RequestImpl<T> {
     
     void loadFail(Throwable throwable);
     
-    void addDisposable(Disposable disposable);
+    void disposable(Disposable disposable);
     
 }
