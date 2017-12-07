@@ -21,10 +21,10 @@ import com.bumptech.glide.request.transition.Transition;
 import com.github.chrisbanes.photoview.OnOutsidePhotoTapListener;
 import com.github.chrisbanes.photoview.OnPhotoTapListener;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.lvshou.utils.DisplayUtil;
 import com.lvshou.widget.R;
 import com.sunfusheng.glideimageview.GlideImageLoader;
 import com.sunfusheng.glideimageview.progress.CircleProgressView;
-import com.sunfusheng.glideimageview.util.DisplayUtil;
 
 import java.util.List;
 

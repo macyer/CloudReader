@@ -18,22 +18,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.load.engine.cache.DiskCache;
-import com.bumptech.glide.load.engine.cache.InternalCacheDiskCacheFactory;
-import com.lvshou.cloudreaadercopy.clickListner.MainCLickListner;
 import com.lvshou.cloudreaadercopy.app.ConstantsImageUrl;
+import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
+import com.lvshou.cloudreaadercopy.clickListner.MainCLickListner;
 import com.lvshou.cloudreaadercopy.databinding.ActivityMainBinding;
 import com.lvshou.cloudreaadercopy.databinding.NavHeaderMainBinding;
 import com.lvshou.cloudreaadercopy.ui.book.BookFragment;
 import com.lvshou.cloudreaadercopy.ui.gank.GankFragment;
 import com.lvshou.cloudreaadercopy.ui.one.OneFragment;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
-import com.lvshou.cloudreaadercopy.utils.ToastUtil;
-import com.lvshou.cloudreaadercopy.base.BaseFragmentPagerAdapter;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.NineImageViewActivity;
 import com.lvshou.utils.PerfectClickListener;
+import com.lvshou.utils.ToastUtil;
 
 import java.util.ArrayList;
 
@@ -134,26 +130,26 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
                 public void run() {
                     switch (v.getId()) {
                         case R.id.iv_avatar:
-                            ToastUtil.showToast("头像");
+                            ToastUtil.show("头像");
                             break;
                         case R.id.ll_nav_deedback:
-                            ToastUtil.showToast("问题反馈");
+                            ToastUtil.show("问题反馈");
                             break;
                         case R.id.ll_nav_exit:
-                            ToastUtil.showToast("退出应用");
+                            ToastUtil.show("退出应用");
                             break;
                         case R.id.ll_nav_homepage:
-                            ToastUtil.showToast("项目主页");
+                            ToastUtil.show("项目主页");
                             break;
                         case R.id.ll_nav_login:
-                            ToastUtil.showToast("登录Git");
+                            ToastUtil.show("登录Git");
                             break;
                         case R.id.ll_nav_about:
-                            ToastUtil.showToast("关于云阅");
+                            ToastUtil.show("关于云阅");
                             startActivity(new Intent(MainActivity.this, NineImageViewActivity.class));
                             break;
                         case R.id.ll_nav_scan_download:
-                            ToastUtil.showToast("扫码下载");
+                            ToastUtil.show("扫码下载");
                             break;
                     }
                 }
@@ -193,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            ToastUtil.showToast("search");
+            ToastUtil.show("search");
             return true;
         }
         return super.onOptionsItemSelected(item);

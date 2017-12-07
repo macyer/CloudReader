@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.sunfusheng.glideimageview.util.DisplayUtil;
+import com.lvshou.utils.DisplayUtil;
 
 /**
  * Created by sunfusheng on 2017/6/27.

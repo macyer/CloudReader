@@ -14,8 +14,8 @@ import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ProgressBar;
 
+import com.lvshou.utils.DisplayUtil;
 import com.sunfusheng.glideimageview.R;
-import com.sunfusheng.glideimageview.util.DisplayUtil;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -21,9 +21,9 @@ import com.lvshou.cloudreaadercopy.databinding.ItemEverydayThreeBinding;
 import com.lvshou.cloudreaadercopy.databinding.ItemEverydayTitleBinding;
 import com.lvshou.cloudreaadercopy.databinding.ItemEverydayTwoBinding;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
-import com.lvshou.cloudreaadercopy.utils.ToastUtil;
 import com.lvshou.utils.CommonUtils;
 import com.lvshou.utils.PerfectClickListener;
+import com.lvshou.utils.ToastUtil;
 import com.sunfusheng.glideimageview.progress.GlideApp;
 
 import java.util.List;
@@ -194,7 +194,7 @@ public class EveryDayAdapter extends BaseRecyclerAdaper<List<AndroidBean>> {
             @Override
             protected void onNoDoubleClick(View v) {
 //                WebViewActivity.loadUrl(v.getContext(), bean.getUrl(), "加载中...");
-                ToastUtil.showToast("=="+bean.getUrl());
+                ToastUtil.show("=="+bean.getUrl());
             }
         });
 
@@ -212,7 +212,7 @@ public class EveryDayAdapter extends BaseRecyclerAdaper<List<AndroidBean>> {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 //                        WebViewActivity.loadUrl(linearLayout.getContext(), bean.getUrl(), "加载中...");
-                        ToastUtil.showToast("=="+bean.getUrl());
+                        ToastUtil.show("=="+bean.getUrl());
                     }
                 });
                 builder.show();

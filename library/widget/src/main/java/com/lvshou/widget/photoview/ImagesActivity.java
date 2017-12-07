@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.lvshou.utils.ColorUtil;
+import com.lvshou.utils.DisplayUtil;
 import com.lvshou.utils.StatusBarUtil;
 import com.lvshou.widget.R;
-import com.sunfusheng.glideimageview.util.DisplayUtil;
 
 import java.util.List;
 

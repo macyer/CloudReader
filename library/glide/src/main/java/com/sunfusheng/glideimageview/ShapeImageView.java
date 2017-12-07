@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.load.resource.gif.GifDrawable;
-import com.sunfusheng.glideimageview.util.DisplayUtil;
+import com.lvshou.utils.DisplayUtil;
 
 /**
  * 提供为图片添加圆角、边框、剪裁到圆形或其他形状等功能。

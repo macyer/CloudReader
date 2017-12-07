@@ -3,10 +3,8 @@ package com.lvshou.cloudreaadercopy.bean.book;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
-import com.android.databinding.library.baseAdapters.BR;
-import com.lvshou.cloudreaadercopy.app.CloudReaderApplication;
-import com.lvshou.cloudreaadercopy.utils.ToastUtil;
 import com.lvshou.http.ParamNames;
+import com.lvshou.utils.ToastUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -39,7 +37,7 @@ public class BookBean extends BaseObservable implements Serializable{
 
     public void setCount(int count) {
         this.count = count;
-        ToastUtil.showToast("=======注释=======");
+        ToastUtil.show("=======注释=======");
 //        notifyPropertyChanged(BR.count);
     }
 
