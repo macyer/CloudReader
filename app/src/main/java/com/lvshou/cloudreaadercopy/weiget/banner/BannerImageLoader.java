@@ -18,7 +18,6 @@ import com.youth.banner.loader.ImageLoader;
 public class BannerImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
-        LogUtil.e("========displayImage="+path);
         GlideApp.with(imageView)
                 .load((String)path)
                 .placeholder(R.mipmap.img_two_bi_one)
