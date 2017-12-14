@@ -1,18 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion rootProject.ext.compileAndTargetVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersionVersion
+        targetSdkVersion rootProject.ext.compileAndTargetVersion
+        versionCode rootProject.ext.versionCodeLibrary
+        versionName rootProject.ext.versionNameLibrary
 
         /*编译api降低到对应版本*/
-        renderscriptTargetApi 19
+        renderscriptTargetApi rootProject.ext.minSdkVersionVersion
         renderscriptSupportModeEnabled true
 
         /*so依赖*/

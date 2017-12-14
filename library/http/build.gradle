@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileAndTargetVersion
     
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersionVersion
+        targetSdkVersion rootProject.ext.compileAndTargetVersion
+        versionCode rootProject.ext.versionCodeLibrary
+        versionName rootProject.ext.versionNameLibrary
 
         /*编译api降低到对应版本*/
-        renderscriptTargetApi 19
+        renderscriptTargetApi rootProject.ext.minSdkVersionVersion
         renderscriptSupportModeEnabled true
 
         /*so依赖*/
@@ -43,11 +43,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':library:utils')
-    
-    api 'com.squareup.okhttp3:okhttp:3.9.0'
-    api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api 'com.squareup.retrofit2:converter-gson:2.3.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    api 'com.squareup.okio:okio:1.13.0'
+
+    api rootProject.ext.squareupOkhttp3
+    api rootProject.ext.squareupOkhttp3Logging
+    api rootProject.ext.squareupRetrofit2
+    api rootProject.ext.squareupRetrofit2Gson
+    api rootProject.ext.squareupRetrofit2Adapter
+    api rootProject.ext.squareupOkio
 }

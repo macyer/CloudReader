@@ -2,17 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion rootProject.ext.compileAndTargetVersion
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersionVersion
+        targetSdkVersion rootProject.ext.compileAndTargetVersion
+        versionCode rootProject.ext.versionCodeLibrary
+        versionName rootProject.ext.versionNameLibrary
 
         /*编译api降低到对应版本*/
-        renderscriptTargetApi 19
+        renderscriptTargetApi rootProject.ext.minSdkVersionVersion
         renderscriptSupportModeEnabled true
 
         /*so依赖*/
@@ -41,13 +40,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.github.bumptech.glide:glide:4.3.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
-    api "com.github.bumptech.glide:okhttp3-integration:4.3.1"/*支持ok*/
-    api 'jp.wasabeef:glide-transformations:2.0.1'/*高斯模糊*/
-    api 'com.youth.banner:banner:1.4.10'
-
     compile project(path: ':library:utils')
+    
+    api rootProject.ext.glide
+    annotationProcessor rootProject.ext.glideCompiler
+    api rootProject.ext.glideOkhttp3
+    api rootProject.ext.glideTransf
+    api rootProject.ext.banner
 }
 
 publish {
