@@ -44,9 +44,10 @@ dependencies {
     api rootProject.ext.supportRecyclerview
     api rootProject.ext.gsonGoogle
     
+    //Room
     api rootProject.ext.archRoom
-    api rootProject.ext.archRoomCompiler
+    annotationProcessor rootProject.ext.archRoomCompiler
     //observerable
     api rootProject.ext.archLifecycle
-    api rootProject.ext.archLifecycleCompiler
+    annotationProcessor rootProject.ext.archLifecycleCompiler
 }

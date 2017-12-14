@@ -1,7 +1,6 @@
 package com.lvshou.utils.database;
 
 import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -30,9 +29,6 @@ public class User {
     @ColumnInfo(name = "nick_name")
     public String nickname;
 
-    @Embedded
-    public Address address;
-    
     // Getters and setters are ignored for brevity,
     // but they're required for Room to work.
 
@@ -67,13 +63,5 @@ public class User {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }
