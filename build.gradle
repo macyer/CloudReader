@@ -48,7 +48,9 @@ ext {
     squareupOkioVersion = '1.13.0'
     glideVersion = '4.3.1'
     glideTransformVersion = '2.0.1'
+    glideTransformVersion = '2.0.1'
     bannerVersion = '1.4.10'
+    archVersion = '1.0.0-alpha5'
 
     //utils
     supportV7 = "com.android.support:appcompat-v7:$supportVersion"
@@ -74,4 +76,9 @@ ext {
     glideOkhttp3 = "com.github.bumptech.glide:okhttp3-integration:$glideVersion"/*支持ok*/
     glideTransf = "jp.wasabeef:glide-transformations:$glideTransformVersion"/*高斯模糊*/
     banner = "com.youth.banner:banner:$bannerVersion"
+    //rom
+    archRoom = "android.arch.persistence.room:runtime:$archVersion"
+    archRoomCompiler = "android.arch.persistence.room:compiler:$archVersion"
+    archLifecycle = "android.arch.lifecycle:extensions:$archVersion"
+    archLifecycleCompiler = "android.arch.lifecycle:compiler:$archVersion"
 }

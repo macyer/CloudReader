@@ -1,6 +1,7 @@
 package com.lvshou.cloudreaadercopy.app;
 
 import android.app.Application;
+import android.arch.persistence.room.Room;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide;
 import com.lvshou.http.HttpUtils;
 import com.lvshou.utils.ContextUtils;
 import com.lvshou.utils.LogUtil;
+import com.lvshou.utils.database.AppDatabase;
 
 /**
  * Created by Lenovo on 2017/11/30.
@@ -15,6 +17,7 @@ import com.lvshou.utils.LogUtil;
 
 public class CloudReaderApplication extends Application {
 
+    public static AppDatabase database;
 
     private static CloudReaderApplication cloudReaderApplication;
     public static CloudReaderApplication getInstance(){
@@ -25,9 +28,15 @@ public class CloudReaderApplication extends Application {
     public void onCreate() {
         super.onCreate();
         cloudReaderApplication = this;
+        initDataBase();
         HttpUtils.getInstance().init(this, LogUtil.LOG_DEBUG);
         ContextUtils.init(this);
         initTextSize();
+    }
+
+    private void initDataBase() {
+        database = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "database-lvshow").build();
     }
 
     private void initTextSize() {
