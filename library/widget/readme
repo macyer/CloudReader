@@ -2,6 +2,11 @@ WebViewWrapper WebView布局
 
 
 
-<!--图片浏览，需要在清单文件注册-->
-<activity android:name="com.lvshou.widget.photoview.ImagesActivity"
-    android:theme="@style/ImagesStyle"/>
+//全屏浏览图片
+Intent intent = new Intent(context, ImagesActivity.class);
+Bundle bundle = new Bundle();
+bundle.putSerializable(ImagesActivity.IMAGE_ATTR, (Serializable) images);
+bundle.putInt(ImagesActivity.CUR_POSITION, index);
+intent.putExtras(bundle);
+context.startActivity(intent);
+((Activity) context).overridePendingTransition(0, 0);

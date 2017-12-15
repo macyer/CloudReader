@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/glide" />
             <option value="$PROJECT_DIR$/library/http" />
+            <option value="$PROJECT_DIR$/library/scan" />
+            <option value="$PROJECT_DIR$/library/sharesdk" />
             <option value="$PROJECT_DIR$/library/utils" />
             <option value="$PROJECT_DIR$/library/widget" />
             <option value="$PROJECT_DIR$/library/xrecyclerview" />

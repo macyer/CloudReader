@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lvshou.widget" />
+    package="com.lvshou.widget">
+    <application>
+        <!--图片浏览-->
+        <activity android:name="com.lvshou.widget.photoview.ImagesActivity"
+            android:theme="@style/ImagesStyle"/>
+    </application>
+</manifest>

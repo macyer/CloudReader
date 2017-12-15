@@ -1,6 +1,7 @@
 package com.lvshou.cloudreaadercopy.ui.gank.child;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.util.Log;
 import android.view.View;
@@ -26,14 +27,14 @@ import com.lvshou.cloudreaadercopy.weiget.banner.BannerImageLoader;
 import com.lvshou.util.RecyclerSettings;
 import com.lvshou.utils.LogUtil;
 import com.lvshou.xrecyclerview.XRecyclerView;
-import com.sunfusheng.glideimageview.progress.GlideApp;
-import com.youth.banner.loader.ImageLoader;
 import com.lvshou.cloudreaadercopy.bean.FrontpageBean.ResultBeanXXXXXXXXXXXXXX.FocusBean.ResultBeanX;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import fitnessroom.hxs.com.codescan.ScanCodeUtil;
+import fitnessroom.hxs.com.sharesdk.ShareUtil;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -222,6 +223,12 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
                 addBaseDisposable(disposable);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        LogUtil.e("====ScanCodeUtil="+ScanCodeUtil.getResultScanCode(resultCode, data));
     }
 
     @Override

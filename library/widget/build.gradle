@@ -37,8 +37,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':library:utils')
-    implementation project(':library:glide')
+    api project(':library:utils')
+    api project(':library:glide')
 
     //图片浏览
     api rootProject.ext.photoView

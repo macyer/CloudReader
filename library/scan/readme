@@ -1,0 +1,7 @@
+if (!isScaning)
+{
+    ScanCodeUtil.startScanCode(this, RequestCode_action_scan_code);
+    isScaning = true;
+}
+
+ String code = ScanCodeUtil.getResultScanCode(resultCode, data);

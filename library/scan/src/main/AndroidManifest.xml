@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+          package="fitnessroom.hxs.com.codescan"
+>
+    <!-- 扫二维码，摄像头权限  组：CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+    >
+        <activity android:name="com.google.zxing.activity.CaptureActivity"/>
+    </application>
+
+</manifest>

@@ -42,7 +42,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':library:utils')
+    api project(':library:utils')
 
     api rootProject.ext.squareupOkhttp3
     api rootProject.ext.squareupOkhttp3Logging

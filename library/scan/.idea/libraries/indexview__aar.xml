@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="indexview:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/indexview.aar/6bbbceb99b938b8976fa7980824e9550/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/indexview.aar/6bbbceb99b938b8976fa7980824e9550/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

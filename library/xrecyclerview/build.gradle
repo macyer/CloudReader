@@ -36,9 +36,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':library:utils')
+    api project(':library:utils')
 
-    implementation project(':library:widget')
-    
-    implementation project(':library:glide')
+    api project(':library:widget')
+
+    api project(':library:glide')
 }

@@ -6,3 +6,8 @@ gson
 StatusBarUtils
 CommonUtils-获取资源有关，分辨率，版本
 PerfectClickListener   双击消除
+
+
+AppDatabase   -      /*
+                     UserDao userDao = MyApplication.database.userDao();
+                     * */

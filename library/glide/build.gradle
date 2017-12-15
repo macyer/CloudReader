@@ -40,7 +40,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(path: ':library:utils')
+    
+    api project(path: ':library:utils')
     
     api rootProject.ext.glide
     annotationProcessor rootProject.ext.glideCompiler
