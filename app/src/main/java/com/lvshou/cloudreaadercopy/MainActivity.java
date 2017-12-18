@@ -27,6 +27,7 @@ import com.lvshou.cloudreaadercopy.ui.book.BookFragment;
 import com.lvshou.cloudreaadercopy.ui.gank.GankFragment;
 import com.lvshou.cloudreaadercopy.ui.one.OneFragment;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
+import com.lvshou.cloudreaadercopy.weiget.menu.NavAboutActivity;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.NineImageViewActivity;
 import com.lvshou.utils.PerfectClickListener;
 import com.lvshou.utils.ToastUtil;
@@ -145,8 +146,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
                             ToastUtil.show("登录Git");
                             break;
                         case R.id.ll_nav_about:
-                            ToastUtil.show("关于云阅");
-                            startActivity(new Intent(MainActivity.this, NineImageViewActivity.class));
+                            NavAboutActivity.start(MainActivity.this);
                             break;
                         case R.id.ll_nav_scan_download:
                             ToastUtil.show("扫码下载");

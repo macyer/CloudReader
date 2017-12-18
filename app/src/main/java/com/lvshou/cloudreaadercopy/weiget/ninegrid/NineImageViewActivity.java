@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.lvshou.cloudreaadercopy.R;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.model.ImageModel;
 import com.lvshou.cloudreaadercopy.weiget.ninegrid.model.ModelUtil;
-import com.lvshou.utils.StatusBarUtil;
 import com.lvshou.widget.photoview.ImageAttr;
+import com.lvshou.widget.statusbar.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,7 @@ public class NineImageViewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(ModelUtil.getImages());
         recyclerView.setAdapter(adapter);
+        setStatusBarTranslucent(true);
     }
 
     protected void setStatusBarTranslucent(boolean isLightStatusBar) {

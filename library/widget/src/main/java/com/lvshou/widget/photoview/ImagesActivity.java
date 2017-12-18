@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.lvshou.utils.ColorUtil;
 import com.lvshou.utils.DisplayUtil;
-import com.lvshou.utils.StatusBarUtil;
 import com.lvshou.widget.R;
 
 import java.util.List;
@@ -45,7 +44,7 @@ public class ImagesActivity extends Activity implements ViewTreeObserver.OnPreDr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
-        StatusBarUtil.setStatusBarTranslucent(this, false);
+//        StatusBarUtil.setStatusBarTranslucent(this, false);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tvTip = (TextView) findViewById(R.id.tv_tip);

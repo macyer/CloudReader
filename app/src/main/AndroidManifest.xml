@@ -36,6 +36,7 @@
             android:screenOrientation="portrait" />
         <!--九宫格-->
         <activity android:name=".weiget.ninegrid.NineImageViewActivity"/>
+        <activity android:name=".weiget.menu.NavAboutActivity"/>
     </application>
 
 </manifest>
