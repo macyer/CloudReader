@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.common.utils">
+    package="com.macyer.utils">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -36,7 +36,7 @@
         android:supportsRtl="true">
         <!--图片浏览-->
         <activity
-            android:name="com.common.widget.photoview.ImagesActivity"
+            android:name="com.macyer.widget.photoview.ImagesActivity"
             android:theme="@style/ImagesStyle" />
     </application>
 </manifest>

@@ -8,7 +8,7 @@
 
         <variable
             name="listner"
-            type="com.common.cloudreaadercopy.clickListner.MainCLickListner"/>
+            type="com.macyer.cloudreaadercopy.clickListner.MainCLickListner"/>
 
     </data>
 

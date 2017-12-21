@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileAndTargetVersion
     defaultConfig {
-        applicationId "com.lvshou.cloudreaadercopy"
+        applicationId "com.macyer.cloudreader"
         minSdkVersion rootProject.ext.minSdkVersionVersion
         targetSdkVersion rootProject.ext.compileAndTargetVersion
         versionCode rootProject.ext.versionCode
@@ -63,8 +63,4 @@ dependencies {
     implementation project(':library:utils')
     implementation project(':library:scan')
     implementation project(':library:sharesdk')
-    //rxjava2
-    implementation rootProject.ext.rxjava2
-    implementation rootProject.ext.rxandroid
-    implementation rootProject.ext.rxbinding2
 }
