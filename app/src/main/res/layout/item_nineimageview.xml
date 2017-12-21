@@ -20,7 +20,7 @@
         android:textSize="@dimen/f6"
         tools:text="标题"/>
 
-    <com.lvshou.cloudreaadercopy.weiget.ninegrid.NineImageView
+    <com.common.cloudreaadercopy.weiget.ninegrid.NineImageView
         android:id="@+id/nineImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

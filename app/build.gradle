@@ -61,7 +61,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     
     implementation project(':library:utils')
-    implementation project(':library:xrecyclerview')
     implementation project(':library:scan')
     implementation project(':library:sharesdk')
     //rxjava2

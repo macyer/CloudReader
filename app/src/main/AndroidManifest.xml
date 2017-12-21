@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.lvshou.cloudreaadercopy">
+    package="com.common.cloudreaadercopy">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,11 +16,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".app.CloudReaderApplication"
+        android:name="com.common.cloudreaadercopy.app.CloudReaderApplication"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.common.cloudreaadercopy.ui.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ViewBigPicTheme">
             <intent-filter>
@@ -30,13 +30,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.common.cloudreaadercopy.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <!--九宫格-->
-        <activity android:name=".weiget.ninegrid.NineImageViewActivity"/>
-        <activity android:name=".weiget.menu.NavAboutActivity"/>
+        <activity android:name="com.common.cloudreaadercopy.weiget.ninegrid.NineImageViewActivity"/>
+        <activity android:name="com.common.cloudreaadercopy.weiget.menu.NavAboutActivity"/>
     </application>
 
 </manifest>

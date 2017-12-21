@@ -7,14 +7,14 @@
     <data>
         <variable
             name="splash"
-            type="com.lvshou.cloudreaadercopy.ui.SplashEntity"/>
+            type="com.common.cloudreaadercopy.ui.SplashEntity"/>
         
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.lvshou.cloudreaadercopy.ui.SplashActivity">
+        tools:context="com.common.cloudreaadercopy.ui.SplashActivity">
 
         <ImageView
             android:layout_width="match_parent"

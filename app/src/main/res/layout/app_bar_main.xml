@@ -7,14 +7,14 @@
 
         <variable
             name="listner"
-            type="com.lvshou.cloudreaadercopy.clickListner.MainCLickListner"/>
+            type="com.common.cloudreaadercopy.clickListner.MainCLickListner"/>
 
     </data>
     
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.lvshou.cloudreaadercopy.MainActivity">
+        tools:context="com.common.cloudreaadercopy.MainActivity">
 
 
         <android.support.v7.widget.Toolbar

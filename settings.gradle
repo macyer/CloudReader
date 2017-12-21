@@ -1,2 +1,2 @@
-include ':app', ':library:xrecyclerview', ':library:utils', 
+include ':app',':library:utils', 
         ':library:scan', ':library:sharesdk', ':library:scan'

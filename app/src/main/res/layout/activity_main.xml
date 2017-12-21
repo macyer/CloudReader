@@ -8,7 +8,7 @@
 
         <variable
             name="listner"
-            type="com.lvshou.cloudreaadercopy.clickListner.MainCLickListner"/>
+            type="com.common.cloudreaadercopy.clickListner.MainCLickListner"/>
 
     </data>
 
