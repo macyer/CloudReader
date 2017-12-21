@@ -132,6 +132,7 @@ public class EveryDayAdapter extends BaseRecyclerAdaper<List<AndroidBean>> {
                         .placeholder(R.mipmap.img_two_bi_one)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .error(R.mipmap.img_two_bi_one)
+                        .centerCrop()
                         .into(binding.ivOnePhoto);
                 
 

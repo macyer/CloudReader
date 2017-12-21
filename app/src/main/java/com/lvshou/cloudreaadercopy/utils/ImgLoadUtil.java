@@ -47,6 +47,7 @@ public class ImgLoadUtil {
                 .error(getMusicDefaultPic(imgNumber))
                 .transition(new DrawableTransitionOptions().crossFade(1500))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
                 .into(imageView);
     }
 
