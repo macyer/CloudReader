@@ -6,8 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.lvshou.cloudreaadercopy.R;
-import com.lvshou.utils.LogUtil;
-import com.sunfusheng.glideimageview.progress.GlideApp;
+import com.lvshou.glideimageview.progress.GlideApp;
 import com.youth.banner.loader.ImageLoader;
 
 /**

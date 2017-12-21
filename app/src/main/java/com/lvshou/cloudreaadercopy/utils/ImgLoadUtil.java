@@ -9,8 +9,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.lvshou.cloudreaadercopy.R;
+import com.lvshou.glideimageview.progress.GlideApp;
 import com.lvshou.utils.CommonUtils;
-import com.sunfusheng.glideimageview.progress.GlideApp;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 

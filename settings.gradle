@@ -1,3 +1,2 @@
-include ':app', ':library:http', ':library:xrecyclerview', 
-        ':library:glide', ':library:widget', ':library:utils', 
+include ':app', ':library:xrecyclerview', ':library:utils', 
         ':library:scan', ':library:sharesdk', ':library:scan'

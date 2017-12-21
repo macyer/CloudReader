@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.lvshou.http.HttpUtils;
 import com.lvshou.utils.ContextUtils;
 import com.lvshou.utils.LogUtil;
-import com.lvshou.utils.database.AppDatabase;
+import com.lvshou.database.AppDatabase;
 
 /**
  * Created by Lenovo on 2017/11/30.

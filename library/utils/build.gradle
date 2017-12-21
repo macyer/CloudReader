@@ -35,7 +35,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    
+
     api rootProject.ext.supportV7
     api rootProject.ext.supportV4
     api rootProject.ext.supportDesign
@@ -50,4 +50,21 @@ dependencies {
     //observerable
     api rootProject.ext.archLifecycle
     annotationProcessor rootProject.ext.archLifecycleCompiler
+
+    //图片浏览
+    api rootProject.ext.photoView
+    //glide
+    api rootProject.ext.glide
+    annotationProcessor rootProject.ext.glideCompiler
+    api rootProject.ext.glideOkhttp3
+    api rootProject.ext.glideTransf
+    api rootProject.ext.banner
+    
+    //http
+    api rootProject.ext.squareupOkhttp3
+    api rootProject.ext.squareupOkhttp3Logging
+    api rootProject.ext.squareupRetrofit2
+    api rootProject.ext.squareupRetrofit2Gson
+    api rootProject.ext.squareupRetrofit2Adapter
+    api rootProject.ext.squareupOkio
 }

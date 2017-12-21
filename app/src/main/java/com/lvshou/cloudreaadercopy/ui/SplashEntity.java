@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.lvshou.cloudreaadercopy.MainActivity;
 import com.lvshou.cloudreaadercopy.R;
 import com.lvshou.cloudreaadercopy.databinding.ActivitySplashBinding;
-import com.sunfusheng.glideimageview.progress.GlideApp;
+import com.lvshou.glideimageview.progress.GlideApp;
 
 /**
  * Created by Lenovo on 2017/11/30.

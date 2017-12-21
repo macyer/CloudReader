@@ -4,13 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CloudReaaderCopy.iml" filepath="$PROJECT_DIR$/CloudReaaderCopy.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/glide/glide.iml" filepath="$PROJECT_DIR$/library/glide/glide.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/http/http.iml" filepath="$PROJECT_DIR$/library/http/http.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/scan/scan.iml" filepath="$PROJECT_DIR$/library/scan/scan.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/sharesdk/sharesdk.iml" filepath="$PROJECT_DIR$/library/sharesdk/sharesdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/utils/utils.iml" filepath="$PROJECT_DIR$/library/utils/utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/widget/widget.iml" filepath="$PROJECT_DIR$/library/widget/widget.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/xrecyclerview/xrecyclerview.iml" filepath="$PROJECT_DIR$/library/xrecyclerview/xrecyclerview.iml" />
     </modules>
   </component>

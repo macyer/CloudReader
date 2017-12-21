@@ -38,7 +38,4 @@ dependencies {
 
     api project(':library:utils')
 
-    api project(':library:widget')
-
-    api project(':library:glide')
 }

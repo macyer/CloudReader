@@ -21,10 +21,10 @@ import com.lvshou.cloudreaadercopy.databinding.ItemEverydayThreeBinding;
 import com.lvshou.cloudreaadercopy.databinding.ItemEverydayTitleBinding;
 import com.lvshou.cloudreaadercopy.databinding.ItemEverydayTwoBinding;
 import com.lvshou.cloudreaadercopy.utils.ImgLoadUtil;
+import com.lvshou.glideimageview.progress.GlideApp;
 import com.lvshou.utils.CommonUtils;
 import com.lvshou.utils.PerfectClickListener;
 import com.lvshou.utils.ToastUtil;
-import com.sunfusheng.glideimageview.progress.GlideApp;
 
 import java.util.List;
 
