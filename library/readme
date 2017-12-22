@@ -1,8 +1,4 @@
 implementation project(':library:utils')
-implementation project(':library:http')
-implementation project(':library:glide')
-implementation project(':library:widget')
-implementation project(':library:xrecyclerview')
 
 utils：  Application初始化ContextUtils.init(this);
         封装了android.support及其gson，基础工具类，其他所有的model都使用此基础model
