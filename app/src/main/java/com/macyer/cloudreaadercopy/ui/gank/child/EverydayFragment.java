@@ -2,6 +2,7 @@ package com.macyer.cloudreaadercopy.ui.gank.child;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -23,6 +24,7 @@ import com.macyer.cloudreaadercopy.utils.TimeUtil;
 import com.macyer.cloudreaadercopy.weiget.banner.BannerImageLoader;
 import com.macyer.recyclerview.XRecyclerView;
 import com.macyer.recyclerview.util.RecyclerSettings;
+import com.macyer.rxjava.RxBus2;
 import com.macyer.utils.LogUtil;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ import java.util.List;
 
 import fitnessroom.hxs.com.codescan.ScanCodeUtil;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by Lenovo on 2017/12/1.
@@ -74,7 +77,6 @@ public class EverydayFragment extends BaseFragment<FragmentGankEverydayBinding> 
         everydayModel = new EverydayModel();
 
         initRecyclerView();
-
     }
 
     private void initRecyclerView() {

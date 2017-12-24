@@ -12,6 +12,10 @@ android {
         /*编译api降低到对应版本*/
         renderscriptTargetApi rootProject.ext.minSdkVersionVersion
         renderscriptSupportModeEnabled true
+
+        manifestPlaceholders = [
+                Gradle_SchemeFilter_Host : rootProject.ext.schemeFilterHost
+        ]
         
         /*so依赖*/
         ndk {
@@ -22,6 +26,12 @@ android {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
         }
     }
 
@@ -69,7 +79,11 @@ dependencies {
     api rootProject.ext.squareupOkio
 
     //rxjava2
-    implementation rootProject.ext.rxjava2
-    implementation rootProject.ext.rxandroid
-    implementation rootProject.ext.rxbinding2
+    api rootProject.ext.rxjava2
+    api rootProject.ext.rxandroid
+    api rootProject.ext.rxbinding2
+    
+    //arouter
+    api rootProject.ext.arouter
+    annotationProcessor rootProject.ext.arouterCompiler
 }

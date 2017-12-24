@@ -7,7 +7,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.FieldNamingStrategy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.macyer.http.utils.CheckNetwork;
+import com.macyer.utils.NetUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -198,7 +198,7 @@ public class HttpUtils {
             Request request = chain.request();
             Request.Builder builder = request.newBuilder();
             builder.addHeader("Accept", "application/json;versions=1");
-            if (CheckNetwork.isNetworkConnected(mContext)) {
+            if (NetUtils.isNetConnected(mContext)) {
                 int maxAge = 60;
                 builder.addHeader("Cache-Control", "public, max-age=" + maxAge);
             } else {

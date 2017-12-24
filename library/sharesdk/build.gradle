@@ -10,6 +10,11 @@ android {
         versionCode 1
         versionName "1.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -25,4 +30,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     api rootProject.ext.supportV7
+    api rootProject.ext.arouter
+    annotationProcessor rootProject.ext.arouterCompiler
 }

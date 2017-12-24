@@ -2,6 +2,7 @@ package com.macyer.http.utils;
 
 
 import com.macyer.http.HttpUtils;
+import com.macyer.utils.NetUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class CacheUtil {
                 /**
                  * 未联网获取缓存数据
                  */
-                if (!CheckNetwork.isNetworkConnected(HttpUtils.getInstance().getContext())) {
+                if (!NetUtils.isNetConnected(HttpUtils.getInstance().getContext())) {
                     //在20秒缓存有效，此处测试用，实际根据需求设置具体缓存有效时间
                     CacheControl cacheControl = new CacheControl.Builder()
                             .maxStale(HttpUtils.HTTP_OFFLINE_CACHE_TIME, TimeUnit.SECONDS)

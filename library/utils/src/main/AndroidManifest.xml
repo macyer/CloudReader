@@ -38,5 +38,35 @@
         <activity
             android:name="com.macyer.widget.photoview.ImagesActivity"
             android:theme="@style/ImagesStyle" />
+
+        <!--arouter-->
+        <activity android:name="com.macyer.arouter.SchemeFilterActivity">
+            <!-- Scheme -->
+            <intent-filter>
+                <data
+                    android:host="${Gradle_SchemeFilter_Host}"
+                    android:scheme="arouter"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+            <!-- App Links -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="${Gradle_SchemeFilter_Host}"
+                    android:scheme="http"/>
+                <data
+                    android:host="${Gradle_SchemeFilter_Host}"
+                    android:scheme="https"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

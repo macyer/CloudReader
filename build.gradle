@@ -1,12 +1,6 @@
 buildscript {
-
-    repositories {
-        jcenter()
-        mavenCentral()
-        google()
-        maven { url "https://jitpack.io" }
-        maven { url 'https://maven.google.com' }
-    }
+    apply from: 'versions.gradle'
+    addRepos(repositories)
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.novoda:bintray-release:0.5.0'
@@ -15,13 +9,7 @@ buildscript {
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-        google()
-        maven { url "https://jitpack.io" }
-        maven { url 'https://maven.google.com' }
-    }
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {
@@ -38,7 +26,6 @@ ext {
     //library
     versionCodeLibrary = 1
     versionNameLibrary = "1.0"
-    
     //依赖版本
     supportVersion = '26.1.0'
     supportConstraintVersion = '1.0.2'
@@ -55,6 +42,8 @@ ext {
     rxjava2Version = '2.0.7'
     rxandroidVersion = '2.0.1'
     rxbinding2Version = '2.0.0'
+    arouterVersion = '1.3.0'
+    arouterCompilerVersion = '1.1.4'
 
     //utils
     supportV7 = "com.android.support:appcompat-v7:$supportVersion"
@@ -89,4 +78,9 @@ ext {
     rxjava2 =  "io.reactivex.rxjava2:rxjava:$rxjava2Version"
     rxandroid = "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     rxbinding2 = "com.jakewharton.rxbinding2:rxbinding:$rxbinding2Version"
+    //arouter
+    arouter = "com.alibaba:arouter-api:$arouterVersion"
+    arouterCompiler =  "com.alibaba:arouter-compiler:$arouterCompilerVersion"
+    //arouter-路由http://m.macyer.com
+    schemeFilterHost = "m.macyer.com"
 }

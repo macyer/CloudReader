@@ -1,2 +1,1 @@
-include ':app',':library:utils', 
-        ':library:scan', ':library:sharesdk', ':library:scan'
+include ':app',':library:scan', ':library:sharesdk',':library:utils'

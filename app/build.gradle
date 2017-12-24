@@ -24,7 +24,7 @@ android {
         ndk {
             abiFilters "armeabi"
         }
-       /*编译版本*/
+        /*编译版本*/
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -32,6 +32,12 @@ android {
         /*数据绑定*/
         dataBinding {
             enabled = true
+        }
+        //arouter
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
         }
     }
     buildTypes {
@@ -41,26 +47,38 @@ android {
         }
     }
 
-}
+    flavorDimensions "tier", "channel"
+    productFlavors {
+        //开发测试专用渠道
+        dev {
+            dimension "tier"
+            buildConfigField "boolean", "LOG_DEBUG", "true" //只在开发渠道中输出log
+        }
 
-android.flavorDimensions 'tier'
-android.productFlavors {
-    //开发测试专用渠道
-    dev {
-        buildConfigField "boolean", "LOG_DEBUG", "true" //只在开发渠道中输出log
+        //基本渠道
+        lvshou {
+            dimension "tier"
+            buildConfigField "boolean", "LOG_DEBUG", "false" //只在开发渠道中输出log
+        }
+        
+        baiduchannel { dimension "channel" }
+        _360safechannel { dimension "channel" }
+        tencentchannel { dimension "channel" }
+        productFlavors.all {
+            /*flavor -> flavor.manifestPlaceholders = [CHANNEL_NAME: name]*/
+        }
     }
-    /*
-    //基本渠道
-    lvshou {}
-    official {}
-   */
 
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    
+
     implementation project(':library:utils')
     implementation project(':library:scan')
     implementation project(':library:sharesdk')
+
+    //arouter
+    api rootProject.ext.arouter
+    annotationProcessor rootProject.ext.arouterCompiler
 }

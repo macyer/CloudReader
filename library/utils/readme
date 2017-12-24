@@ -13,6 +13,20 @@ AppDatabase   -      /*
                      * */
                      
                      
+##################   RxBus2   #########################
+发送消息：
+RxBus2.getIntanceBus().post(110,10);
+接收消息：
+RxBus2.getIntanceBus().doSubscribe(EverydayFragment.class
+        ,110
+        ,Integer.class
+        , integer -> LogUtil.e("============"+integer));
+注销：
+@Override
+public void onDestroy() {
+    super.onDestroy();
+    RxBus2.unSubscribe(EverydayFragment.class);
+}
 ##################   Http   #########################
 
 
