@@ -5,7 +5,7 @@ CloudeReader，学习新技术，都会在代码里面进行有所实现。
 现在已经使用的技术：
 MVVM
 
-Rxjava
+Rxjava（Rxbus）
 Retrofit
 Okhttp
 Gson
@@ -22,6 +22,7 @@ banner
 Vector
 Room
 
+Arouter集成
 
 
 
