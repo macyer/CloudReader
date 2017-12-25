@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.macyer.arouter.RouterPath;
 import com.macyer.cloudreaadercopy.app.ConstantsImageUrl;
 import com.macyer.cloudreaadercopy.base.BaseFragmentPagerAdapter;
 import com.macyer.cloudreaadercopy.clickListner.MainCLickListner;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setListner(this);
+        
         initIds();
                 
         initToolbar();
@@ -145,7 +148,12 @@ public class MainActivity extends AppCompatActivity implements MainCLickListner,
                             ToastUtil.show("登录Git");
                             break;
                         case R.id.ll_nav_about:
-                            NavAboutActivity.start(MainActivity.this);
+//                            NavAboutActivity.start(MainActivity.this);
+                            ToastUtil.show("关于");
+                            ARouter.getInstance()
+                                    .build(RouterPath.about)
+                                    .withString("name","------------")
+                                    .navigation();
                             break;
                         case R.id.ll_nav_scan_download:
                             ToastUtil.show("扫码下载");

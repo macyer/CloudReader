@@ -5,4 +5,7 @@ package com.macyer.arouter;
  */
 
 public class RouterPath {
+    
+    public final static String about = "/cloud/test";
+    
 }

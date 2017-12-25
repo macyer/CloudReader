@@ -60,4 +60,7 @@
     <color name="c10">#007AFF</color>
     <color name="c11">#1194F6</color>
     <color name="c12">#9D1BB2</color>
+    <!--自动滚动txtview-->
+    <color name="home_chat_type">#ff6c00</color>
+    <color name="deep_s_gray">#454545</color>
 </resources>

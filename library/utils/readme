@@ -13,6 +13,34 @@ AppDatabase   -      /*
                      * */
                      
                      
+##################   AutoTextview   #########################
+
+<com.yijiequ.view.AutoTextView
+    android:id="@+id/home_page_bottom_info"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_weight="1"
+    android:ellipsize="end"
+    android:lines="1"
+    android:text=""
+    android:textColor="#373737"
+    android:textSize="12sp"
+    launcher:type="1" />
+
+</LinearLayout>
+
+    <!--自动滚动txtview color.xml-->
+    <color name="home_chat_type">#ff6c00</color>
+    <color name="deep_s_gray">#454545</color>
+
+<!--自动滚动txtview arrays.xml-->
+<declare-styleable name="type_text">
+        <attr name="type" format="integer" />
+    </declare-styleable>
+
+
 ##################   RxBus2   #########################
 发送消息：
 RxBus2.getIntanceBus().post(110,10);

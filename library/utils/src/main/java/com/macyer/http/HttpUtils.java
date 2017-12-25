@@ -55,7 +55,7 @@ public class HttpUtils {
 
     public static final int HTTP_OFFLINE_CACHE_TIME = 20;
     public static final int HTTP_CACHE_TIME = 3;
-    
+
     private HttpUtils() {
     }
 
@@ -86,6 +86,7 @@ public class HttpUtils {
         }
         return (T) gankIo;
     }
+
     public <T> T getTingIoServer(Class<T> tClass) {
         if (tingIo == null) {
             synchronized (HttpUtils.class) {
@@ -96,6 +97,7 @@ public class HttpUtils {
         }
         return (T) tingIo;
     }
+
     public <T> T getDoubanIoServer(Class<T> tClass) {
         if (doubanIo == null) {
             synchronized (HttpUtils.class) {
@@ -118,7 +120,7 @@ public class HttpUtils {
     }
 
     public Gson getGson() {
-        if (gson == null){
+        if (gson == null) {
             GsonBuilder gsonBuilder = new GsonBuilder()
                     .setLenient()
                     .serializeNulls()
@@ -126,7 +128,7 @@ public class HttpUtils {
                         @Override
                         public String translateName(Field f) {
                             ParamNames paramNames = f.getAnnotation(ParamNames.class);
-                            return paramNames!=null?paramNames.value(): FieldNamingPolicy.IDENTITY.translateName(f);
+                            return paramNames != null ? paramNames.value() : FieldNamingPolicy.IDENTITY.translateName(f);
                         }
                     });
             gson = gsonBuilder.create();
@@ -219,7 +221,8 @@ public class HttpUtils {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-                Log.e("HttpUtils===", message);
+//                if (isDebug)
+//                    Log.e("HttpUtils===", message);
             }
         });
         if (isDebug) {
@@ -233,7 +236,7 @@ public class HttpUtils {
     public void setTokenListener(IpmlTokenGetListener listener) {
         this.listener = listener;
     }
-    
+
     public Context getContext() {
         return mContext;
     }

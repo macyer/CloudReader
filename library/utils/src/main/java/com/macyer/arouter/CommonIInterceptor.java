@@ -16,7 +16,7 @@ import com.alibaba.android.arouter.facade.template.IInterceptor;
 public class CommonIInterceptor implements IInterceptor {
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-        
+        callback.onContinue(postcard);
     }
 
     @Override
